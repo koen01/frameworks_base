@@ -29,4 +29,8 @@
   <java-symbol type="string" name="reboot_to_bootloader_message" />
   <java-symbol type="string" name="reboot_title" />
   <java-symbol type="string" name="reboot_message" />
+    
+    <!-- Device keyhandler -->
+    <java-symbol type="string" name="config_deviceKeyHandlerLib" />
+    <java-symbol type="string" name="config_deviceKeyHandlerClass" />
 </resources>
