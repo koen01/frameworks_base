@@ -5360,6 +5360,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 unloadAccents();
                 updateAccents();
             } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))) {
+                setStatusBarWindowViewOptions();
+            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.QS_TILE_STYLE))) {
                 stockTileStyle();
                 updateTileStyle();
