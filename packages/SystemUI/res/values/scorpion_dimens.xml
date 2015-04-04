@@ -65,6 +65,9 @@
 
     <!-- The width/height of the charging indicator view on keyguard. -->
     <dimen name="keyguard_charging_indication_height">48dp</dimen>
-    <dimen name="keyguard_charging_indication_width">24dp</dimen>
+    <dimen name="keyguard_charging_indication_width">24dp</dimen>  
+
+    <!-- Membar spacing -->
+    <dimen name="recents_membar_spacing">12dp</dimen>
 
 </resources>

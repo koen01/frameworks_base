@@ -4979,6 +4979,12 @@ public final class Settings {
         private static final Validator STATUS_BAR_CUSTOM_HEADER_SHADOW_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
+	    /**
+         * show the membar in recents
+         *  @hide
+         */
+        public static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
+
         /**
          * header image package to use for daylight header - package name - null if default
          * @hide
