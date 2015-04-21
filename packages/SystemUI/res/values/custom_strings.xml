@@ -117,4 +117,11 @@
 	
 	<!-- Power menu QS tile -->
     <string name="quick_settings_power_menu_label">Power menu</string>
+
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Heads-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up disabled</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up enabled</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up is now disabled</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up is now enabled</string>
 </resources>

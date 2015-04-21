@@ -36,6 +36,7 @@ import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.KillappTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -92,6 +93,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<KillappTile> mKillappTileProvider;
     private final Provider<ThemeTile> mThemeTileProvider;
+    private final Provider<HeadsUpTile> mHeadsUpTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -123,7 +125,9 @@ public class QSFactoryImpl implements QSFactory {
             Provider<PowerMenuTile> powerMenuTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<KillappTile> killappTileProvider,
-            Provider<ThemeTile> themeTileProvider) {
+            Provider<ThemeTile> themeTileProvider,
+            Provider<HeadsUpTile> headsUpTileProvider) {
+
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -152,6 +156,7 @@ public class QSFactoryImpl implements QSFactory {
         mScreenshotTileProvider = screenshotTileProvider;
         mKillappTileProvider = killappTileProvider;
         mThemeTileProvider = themeTileProvider;
+        mHeadsUpTileProvider = headsUpTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -217,6 +222,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mKillappTileProvider.get();
             case "theme":
                 return mThemeTileProvider.get();
+            case "heads_up":
+                return mHeadsUpTileProvider.get();
         }
 
         // Custom tiles
