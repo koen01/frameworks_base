@@ -4674,6 +4674,18 @@ public final class Settings {
          */
         public static final String SEEK_BAR_BATTERY_CHARGE_LEVEL_SOUND = "battery_level_charge_seek_bar";
 
+	/**
+         * Whether to display clock while recents are in full screen
+         * @hide
+         */
+        public static final String RECENTS_FULL_SCREEN_CLOCK = "recents_full_screen_clock";
+
+        /**
+         * Whether to display clock while recents are in full screen
+         * @hide
+         */
+        public static final String RECENTS_FULL_SCREEN_DATE = "recents_full_screen_date";
+
         /**
          * Status bar carrier label
          * 0: Hide
