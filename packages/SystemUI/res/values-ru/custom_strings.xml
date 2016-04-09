@@ -20,4 +20,24 @@
     <string name="global_action_restart_advanced">Расшир. перезагрузка</string>
 
     <string name="statusbar_items_title">Редактирование иконок</string>
+
+    <string name="lockscreen_default">По умолчанию</string>
+    <string name="lockscreen_hidden">Нет</string>
+
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Проведите пальцем от иконки в сторону центра экрана</string>
+
+    <!-- QuickSettings: Sound [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_sound_label">Звук</string>
+    <string name="quick_settings_sound_ring">Звонок</string>
+    <string name="quick_settings_sound_vibrate">Вибрация</string>
+    <string name="quick_settings_sound_dnd">Не беспокоить</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash зарядка</string>
+
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Всплывающее уведомление отложено на 1 минуту.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Всплывающее уведомление отложено на <xliff:g id="number">%d</xliff:g> минут.</string>
 </resources>
