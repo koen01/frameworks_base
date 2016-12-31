@@ -60,10 +60,6 @@ oneway interface IStatusBar
 
     void showRecentApps(boolean triggeredFromAltTab);
     void hideRecentApps(boolean triggeredFromAltTab, boolean triggeredFromHomeKey);
-    void toggleRecentApps();
-    void toggleSplitScreen();
-    void preloadRecentApps();
-    void cancelPreloadRecentApps();
     void showScreenPinningRequest(int taskId);
 
     void dismissKeyboardShortcutsMenu();
@@ -96,7 +92,6 @@ oneway interface IStatusBar
     void appTransitionFinished();
 
     void showAssistDisclosure();
-    void startAssist(in Bundle args);
 
     /**
      * Notifies the status bar that a camera launch gesture has been detected.
@@ -156,4 +151,10 @@ oneway interface IStatusBar
      */
     void toggleCameraFlash();
     void leftInLandscapeChanged(boolean isLeft);
+    void toggleRecentApps();
+    void toggleSplitScreen();
+    void preloadRecentApps();
+    void cancelPreloadRecentApps();
+    void startAssist(in Bundle args);
+    void restartUI();
 }
