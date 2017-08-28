@@ -17,6 +17,9 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="screenrecord_stopdot_label">Mostra pulsante stop</string>
     <string name="screenrecord_low_quality_label">Qualità bassa</string>
+
+    <string name="global_action_restart_advanced">Avanzate</string>
 </resources>
