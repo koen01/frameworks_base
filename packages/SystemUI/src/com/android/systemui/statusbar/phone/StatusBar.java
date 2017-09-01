@@ -1768,6 +1768,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.PULSE_ON_NEW_TRACKS),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -1778,12 +1781,16 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.PULSE_ON_NEW_TRACKS))) {
                 setPulseOnNewTracks();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
+                setStatusBarWindowViewOptions();
             }
         }
 
         public void update() {
             setFpToDismissNotifications();
             setPulseOnNewTracks();
+            setStatusBarWindowViewOptions();
         }
     }
 
@@ -1801,6 +1808,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                     UserHandle.USER_CURRENT) == 1);
         }
     }
+
+    private void setStatusBarWindowViewOptions() {
+        if (mStatusBarWindow != null) {
+            mStatusBarWindow.setStatusBarWindowViewOptions();
+        }
+    }
+
     /**
      * All changes to the status bar and notifications funnel through here and are batched.
      */
