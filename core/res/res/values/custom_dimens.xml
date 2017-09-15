@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2019 The Dirty Unicorns Project
+<!--
+     Copyright (C) 2015-2019 AOSiP
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,8 +16,6 @@
 -->
 <resources>
 
-    <color name="du_themes_qs_inactive_color">#FFDCDCDC</color>
-    <color name="toast_bg">@color/white</color>
-    <color name="toast_text">@color/black</color>
+    <dimen name="toast_elevation">2dp</dimen>
 
 </resources>
