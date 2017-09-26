@@ -4720,6 +4720,7 @@ public final class Settings {
          * @hide
          */
         public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
+
          /**
          * Which applications to disable heads up notifications for
          *
@@ -4728,7 +4729,6 @@ public final class Settings {
         public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
 
         /**
-         * Whether to enable status and navigation bar color in battery saver mode.
          * Heads up timeout configuration
          * @hide
          */
@@ -4755,6 +4755,13 @@ public final class Settings {
          * @hide
          */
         public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
+
+        /*
+         * Indicates whether ANBI (Accidental navigation button interaction) is enabled.
+         *
+         * @hide
+         */
+        public static final String ANBI_ENABLED_OPTION = "anbi_enabled_option";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
