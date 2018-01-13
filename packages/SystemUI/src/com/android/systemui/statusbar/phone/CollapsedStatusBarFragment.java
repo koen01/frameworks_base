@@ -79,6 +79,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private View mCustomCarrierLabel;
     private int mShowCarrierLabel;
 
+    private View mBatteryBar;
+
     // DU Logo
     private ImageView mDULogo;
     private boolean mShowLogo;
@@ -153,6 +155,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mCustomCarrierLabel = mStatusBar.findViewById(R.id.statusbar_carrier_text);
         mDULogo = (ImageView)mStatusBar.findViewById(R.id.status_bar_logo);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mDULogo);
+        mBatteryBar = mStatusBar.findViewById(R.id.battery_bar);
         updateSettings(false);
         showSystemIconArea(false);
         showClock(false);
@@ -280,10 +283,12 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideSystemIconArea(boolean animate) {
         animateHide(mSystemIconArea, animate);
+        animateHide(mBatteryBar, animate);
     }
 
     public void showSystemIconArea(boolean animate) {
         animateShow(mSystemIconArea, animate);
+        animateShow(mBatteryBar, animate);
     }
 
     public void hideClock(boolean animate) {
