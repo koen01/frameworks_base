@@ -21,5 +21,4 @@
 
     <!-- Whether safe headphone volume warning dialog is disabled on Vol+ (operator specific). -->
     <bool name="config_safe_media_disable_on_volume_up">false</bool>
-
 </resources>

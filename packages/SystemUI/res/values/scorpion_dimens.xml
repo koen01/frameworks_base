@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-<<<<<<< HEAD
   Copyright (C) 2018 The Dirty Unicorns Project
 
   This program is free software: you can redistribute it and/or modify
@@ -14,7 +13,7 @@
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  along with this program.  If not, see <http://www.gnu.org/licenses/>
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -44,4 +43,10 @@
 
     <!-- Height of the status bar header bar -->
     <dimen name="status_bar_header_height">130dp</dimen>
+
+    <!-- Status Bar Padding -->
+    <dimen name="qs_corner_content_padding">8dp</dimen>
+
+    <!-- Omnijaws Weather -->   
+    <dimen name="current_weather_image_size">42dp</dimen>
 </resources>
