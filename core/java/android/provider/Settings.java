@@ -4951,13 +4951,23 @@ public final class Settings {
         /** @hide */
         private static final Validator LOCKSCREEN_WEATHER_SHOW_CITY_VALIDATOR = BOOLEAN_VALIDATOR;
 
-
-
         /**
          * Whether to show battery percent on ambient bottom
          * @hide
          */
         public static final String AMBIENT_BATTERY_PERCENT = "ambient_battery_percent";
+
+        /**
+         * Which component to use for Recents UI
+         * 0 - Pie Recents (Quickstep)
+         * 1 - Oreo Recents (SystemUI)
+         * @hide
+         */
+        public static final String RECENTS_COMPONENT = "recents_component";
+
+        /** @hide */
+        public static final Validator RECENTS_COMPONENT_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -5031,6 +5041,7 @@ public final class Settings {
             OMNI_LOCKSCREEN_WEATHER_ENABLED,
             LOCKSCREEN_WEATHER_SHOW_TEMP,
             LOCKSCREEN_WEATHER_SHOW_CITY,
+            RECENTS_COMPONENT,
         };
 
         /**
@@ -5176,6 +5187,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_LOCKSCREEN_WEATHER_ENABLED);
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_TEMP);
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_CITY);
+            PRIVATE_SETTINGS.add(RECENTS_COMPONENT);
         }
 
         /**
@@ -5286,6 +5298,7 @@ public final class Settings {
                     OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_WEATHER_SHOW_TEMP, LOCKSCREEN_WEATHER_SHOW_TEMP_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_WEATHER_SHOW_CITY, LOCKSCREEN_WEATHER_SHOW_CITY_VALIDATOR);
+            VALIDATORS.put(RECENTS_COMPONENT,RECENTS_COMPONENT_VALIDATOR);
         }
 
         /**
