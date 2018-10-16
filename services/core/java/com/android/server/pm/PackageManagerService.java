@@ -8465,11 +8465,6 @@ public class PackageManagerService extends IPackageManager.Stub
                     // Ignore entries which are not packages
                     continue;
                 }
-                // Ignore vendor overlays that should live on system/app
-                if ((scanDir.getPath() == VENDOR_OVERLAY_DIR || scanDir.getPath() == PRODUCT_OVERLAY_DIR)
-                    && Arrays.asList(ThemeAccentUtils.BLACKLIST_VENDOR_OVERLAYS).contains(file.getName())){
-                    continue;
-                }
                 parallelPackageParser.submit(file, parseFlags);
                 fileCount++;
             }
