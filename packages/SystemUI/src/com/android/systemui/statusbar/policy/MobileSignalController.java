@@ -25,8 +25,8 @@ import android.database.ContentObserver;
 import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.UserHandle;
+import android.os.Looper;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.telephony.ims.ImsReasonInfo;
@@ -86,6 +86,7 @@ public class MobileSignalController extends SignalController<
     // Show lte/4g switch
     private boolean mShowLteFourGee;
     private boolean mRoamingIconAllowed;
+    private boolean mVoLTEicon;
 
     private ImsManager mImsManager;
 
@@ -146,22 +147,35 @@ public class MobileSignalController extends SignalController<
            resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.SHOW_LTE_FOURGEE),
                   false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.SHOW_VOLTE_ICON), false,
+                    this, UserHandle.USER_ALL);
+            updateSettings();
         }
 
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            super.onChange(selfChange, uri);
-            if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.SHOW_LTE_FOURGEE))) {
-                    mShowLteFourGee = Settings.System.getIntForUser(
-                            mContext.getContentResolver(),
+         /*
+          *  @hide
+          */
+         @Override
+         public void onChange(boolean selfChange) {
+             updateSettings();
+         }
+     }
+
+     private void updateSettings() {
+         ContentResolver resolver = mContext.getContentResolver();
+
+                    mShowLteFourGee = Settings.System.getIntForUser(resolver,
                             Settings.System.SHOW_LTE_FOURGEE,
                             0, UserHandle.USER_CURRENT) == 1;
+
+                    mVoLTEicon = Settings.System.getIntForUser(resolver,
+                    Settings.System.SHOW_VOLTE_ICON, 0,
+                    UserHandle.USER_CURRENT) == 1;
+
                     mapIconSets();
                     updateTelephony();
             }
-        }
-    }
 
     public void setConfiguration(Config config) {
         mConfig = config;
@@ -349,7 +363,7 @@ public class MobileSignalController extends SignalController<
     private int getVolteResId() {
         int resId = 0;
 
-        if ( mCurrentState.imsResitered ) {
+        if ( mCurrentState.imsResitered && mVoLTEicon ) {
             resId = R.drawable.ic_volte;
         }
         return resId;
