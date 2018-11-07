@@ -23,5 +23,4 @@
 
     <!-- Fix a tablet derp with the notification panel -->
     <bool name="tablets_notifications_quick_fix">false</bool>
-
 </resources>
