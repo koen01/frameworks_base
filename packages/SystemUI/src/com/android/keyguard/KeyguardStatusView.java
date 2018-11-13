@@ -25,6 +25,7 @@ import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
@@ -64,6 +65,8 @@ public class KeyguardStatusView extends GridLayout implements
     private static final boolean DEBUG = KeyguardConstants.DEBUG;
     private static final String TAG = "KeyguardStatusView";
     private static final int MARQUEE_DELAY_MS = 2000;
+
+	private static final String FONT_FAMILY = "sans-serif-light";
 
     private final LockPatternUtils mLockPatternUtils;
     private final IActivityManager mIActivityManager;
@@ -231,7 +234,7 @@ public class KeyguardStatusView extends GridLayout implements
         boolean smallClock = mKeyguardSlice.hasHeader() || mPulsing;
         prepareSmallView(smallClock);
         float clockScale = smallClock ? mSmallClockScale : 1;
-
+		Typeface tf = Typeface.create(FONT_FAMILY, Typeface.NORMAL);
         RelativeLayout.LayoutParams layoutParams =
                 (RelativeLayout.LayoutParams) mClockView.getLayoutParams();
         int height = mClockView.getHeight();
@@ -243,6 +246,7 @@ public class KeyguardStatusView extends GridLayout implements
                 (RelativeLayout.LayoutParams) mCustomClockView.getLayoutParams();
         customlayoutParams.bottomMargin = getResources().getDimensionPixelSize(
                 R.dimen.keyguard_security_view_top_margin);
+		mClockView.setTypeface(tf);
         mCustomClockView.setLayoutParams(customlayoutParams);
 
         // Du analog clock
@@ -251,7 +255,7 @@ public class KeyguardStatusView extends GridLayout implements
         dulayoutParams.bottomMargin = getResources().getDimensionPixelSize(
                 R.dimen.keyguard_security_view_top_margin);
         mDuClockView.setLayoutParams(dulayoutParams);
-
+		mClockView.setTypeface(tf);
         layoutParams = (RelativeLayout.LayoutParams) mClockSeparator.getLayoutParams();
         layoutParams.topMargin = smallClock ? (int) mWidgetPadding : 0;
         layoutParams.bottomMargin = layoutParams.topMargin;
