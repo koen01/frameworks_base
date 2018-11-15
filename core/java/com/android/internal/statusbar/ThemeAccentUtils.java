@@ -19,7 +19,6 @@ package com.android.internal.statusbar;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.os.RemoteException;
-import android.util.Log;
 
 public class ThemeAccentUtils {
 
@@ -40,7 +39,6 @@ public class ThemeAccentUtils {
         "com.android.gboard.theme.light", // 1
     };
 
-
     private static final String[] QS_TILE_THEMES = {
         "com.android.systemui.qstile.default", // 0
         "com.android.systemui.qstile.circlegradient", // 1
@@ -48,14 +46,19 @@ public class ThemeAccentUtils {
         "com.android.systemui.qstile.dottedcircle", // 3
         "com.android.systemui.qstile.dualtonecircle", // 4
         "com.android.systemui.qstile.dualtonecircletrim", // 5
-        "com.android.systemui.qstile.mountain", // 6
-        "com.android.systemui.qstile.ninja", // 7
-        "com.android.systemui.qstile.oreo", // 8
-        "com.android.systemui.qstile.oreocircletrim", // 9
-        "com.android.systemui.qstile.oreosquircletrim", // 10
-        "com.android.systemui.qstile.pokesign", // 11
-        "com.android.systemui.qstile.squircletrim", // 12
-        "com.android.systemui.qstile.wavey", // 13
+        "com.android.systemui.qstile.ink", // 6
+        "com.android.systemui.qstile.inkdrop", // 7
+        "com.android.systemui.qstile.mountain", // 8
+        "com.android.systemui.qstile.ninja", // 9
+        "com.android.systemui.qstile.oreo", // 10
+        "com.android.systemui.qstile.oreocircletrim", // 11
+        "com.android.systemui.qstile.oreosquircletrim", // 12
+        "com.android.systemui.qstile.pokesign", // 13
+        "com.android.systemui.qstile.squaremedo", // 14
+        "com.android.systemui.qstile.squircle", // 15
+        "com.android.systemui.qstile.squircletrim", // 16
+        "com.android.systemui.qstile.teardrop", // 17
+        "com.android.systemui.qstile.wavey", // 18
     };
 
     // Accents
@@ -92,21 +95,6 @@ public class ThemeAccentUtils {
     };
     // Unloads the stock dark theme
     public static void unloadStockDarkTheme(IOverlayManager om, int userId) {
-        OverlayInfo themeInfo = null;
-        try {
-            themeInfo = om.getOverlayInfo(STOCK_DARK_THEME,
-                    userId);
-            if (themeInfo != null && themeInfo.isEnabled()) {
-                om.setEnabled(STOCK_DARK_THEME,
-                        false /*disable*/, userId);
-            }
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Check for the dark system theme
-    public static boolean isUsingDarkTheme(IOverlayManager om, int userId) {
         OverlayInfo themeInfo = null;
         try {
             themeInfo = om.getOverlayInfo(STOCK_DARK_THEME,

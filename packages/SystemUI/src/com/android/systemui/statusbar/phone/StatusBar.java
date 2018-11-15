@@ -5355,10 +5355,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 final String stopString = Settings.System.getString(mContext.getContentResolver(),
                         Settings.System.HEADS_UP_STOPLIST_VALUES);
                 splitAndAddToArrayList(mStoplist, stopString, "\\|");
-            }
-            update();
-        }
-            if (uri.equals(Settings.System.getUriFor(
+            }else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.ACCENT_PICKER))) {
                 unloadAccents();
                 updateAccents();
@@ -5366,6 +5363,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.QS_TILE_STYLE))) {
                 stockTileStyle();
                 updateTileStyle();
+            }
+            update();
         }
 
         public void update() {
