@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
+<<<<<<< HEAD
   Copyright (C) 2018 The Dirty Unicorns Project
+=======
+     Copyright (C) 2018 Scorpion
+>>>>>>> 1ffe8230da9... base: Introduce FontService
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -34,4 +38,9 @@
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
 
+    <!-- Font service -->
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">access font manager</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
 </resources>
