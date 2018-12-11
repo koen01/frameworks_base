@@ -5150,6 +5150,44 @@ public final class Settings {
         private static final Validator FAST_CHARGING_LED_ENABLED_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+	/**
+         * Whether to blend battery light colors between full and empty value.
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_BLEND = "battery_light_blend";
+
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_BLEND_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Battery light blend full color.
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_BLEND_FULL_COLOR =
+                "battery_light_blend_full_color";
+
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_BLEND_FULL_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Battery light blend empty color.
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_BLEND_EMPTY_COLOR =
+                "battery_light_blend_empty_color";
+
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_BLEND_EMPTY_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Battery light blend color direction.
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_BLEND_REVERSE = "battery_light_blend_reverse";
+
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_BLEND_REVERSE_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5232,6 +5270,10 @@ public final class Settings {
             FAST_BATTERY_LIGHT_COLOR,
             FAST_CHARGING_LED_ENABLED,
             BATTERY_LIGHT_ONLY_FULLY_CHARGED,
+            BATTERY_LIGHT_BLEND,
+            BATTERY_LIGHT_BLEND_FULL_COLOR,
+            BATTERY_LIGHT_BLEND_EMPTY_COLOR,
+            BATTERY_LIGHT_BLEND_REVERSE,
         };
 
         /**
@@ -5387,6 +5429,10 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FAST_BATTERY_LIGHT_COLOR);
             PRIVATE_SETTINGS.add(FAST_CHARGING_LED_ENABLED);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_ONLY_FULLY_CHARGED);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_BLEND);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_BLEND_FULL_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_BLEND_EMPTY_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_BLEND_REVERSE);
         }
 
         /**
@@ -5513,6 +5559,10 @@ public final class Settings {
             VALIDATORS.put(FAST_BATTERY_LIGHT_COLOR, FAST_BATTERY_LIGHT_COLOR_VALIDATOR);
             VALIDATORS.put(FAST_CHARGING_LED_ENABLED, FAST_CHARGING_LED_ENABLED_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_ONLY_FULLY_CHARGED, BATTERY_LIGHT_ONLY_FULLY_CHARGED_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_BLEND, BATTERY_LIGHT_BLEND_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_BLEND_FULL_COLOR, BATTERY_LIGHT_BLEND_FULL_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_BLEND_EMPTY_COLOR, BATTERY_LIGHT_BLEND_EMPTY_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_BLEND_REVERSE, BATTERY_LIGHT_BLEND_REVERSE_VALIDATOR);
         }
 
         /**
