@@ -185,4 +185,9 @@
 
   <!-- Oreo's recents component activity -->
   <java-symbol type="string" name="config_recentsComponentNameOreo" />
+
+  <!-- Does the device supports fast charging -->
+  <java-symbol type="bool" name="config_FastChargingLedSupported" />
+  <!-- Default value for led color when fast charging is active -->
+  <java-symbol type="integer" name="config_notificationsFastBatteryARGB" />
 </resources>

@@ -5110,12 +5110,45 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_INDICATION_TEXT_COLOR = "lockscreen_indication_text_color";
 
-        /**
-	     ** Change fonts for the system lockscreen clock widget
-	     **
-	     ** @hide
-	     **/
+        /*
+	 * Change fonts for the system lockscreen clock widget
+	 *
+	 * @hide
+	*/
         public static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+
+        /**
+         * Whether the battery light should only be enabled on fully charged battery.
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_ONLY_FULLY_CHARGED =
+                "battery_light_only_fully_charged";
+
+        /** @hide */
+        private static final Validator BATTERY_LIGHT_ONLY_FULLY_CHARGED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * What color to use for the battery LED while charging - low
+         * @hide
+         */
+        public static final String FAST_BATTERY_LIGHT_COLOR = "fast_battery_light_color";
+
+        /** @hide */
+        private static final Validator FAST_BATTERY_LIGHT_COLOR_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+         * Whether the fast charging battery light is enabled
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String FAST_CHARGING_LED_ENABLED = "fast_charging_led_enabled";
+
+        /** @hide */
+        private static final Validator FAST_CHARGING_LED_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -5196,6 +5229,9 @@ public final class Settings {
             STATUS_BAR_SHOW_TICKER,
             STATUS_BAR_TICKER_ANIMATION_MODE,
             STATUS_BAR_TICKER_TICK_DURATION,
+            FAST_BATTERY_LIGHT_COLOR,
+            FAST_CHARGING_LED_ENABLED,
+            BATTERY_LIGHT_ONLY_FULLY_CHARGED,
         };
 
         /**
@@ -5348,6 +5384,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_TICKER);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
+            PRIVATE_SETTINGS.add(FAST_BATTERY_LIGHT_COLOR);
+            PRIVATE_SETTINGS.add(FAST_CHARGING_LED_ENABLED);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ONLY_FULLY_CHARGED);
         }
 
         /**
@@ -5471,6 +5510,9 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_SHOW_TICKER, STATUS_BAR_SHOW_TICKER_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_TICKER_ANIMATION_MODE, STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION, STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
+            VALIDATORS.put(FAST_BATTERY_LIGHT_COLOR, FAST_BATTERY_LIGHT_COLOR_VALIDATOR);
+            VALIDATORS.put(FAST_CHARGING_LED_ENABLED, FAST_CHARGING_LED_ENABLED_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_ONLY_FULLY_CHARGED, BATTERY_LIGHT_ONLY_FULLY_CHARGED_VALIDATOR);
         }
 
         /**
