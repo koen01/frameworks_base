@@ -14,21 +14,7 @@
      limitations under the License.
 -->
 
-<!-- Formatting note: terminate all comments with a period, to avoid breaking
-     the documentation output. To suppress comment lines from the documentation
-     output, insert an eat-comment element after the comment lines.
--->
-
 <resources>
-
-    <!-- Custom Analog clock -->
-    <declare-styleable name="CustomAnalogClock">
-        <attr name="custom_dial" format="reference"/>
-        <attr name="custom_hand_hour" format="reference"/>
-        <attr name="custom_hand_minute" format="reference"/>
-        <attr name="deadpool_dial" format="reference"/>
-        <attr name="deadpool_hand_hour" format="reference"/>
-        <attr name="deadpool_hand_minute" format="reference"/>
-    </declare-styleable>
-
+    <!-- Weather condition icon  -->
+    <dimen name="weather_icon_size">17dp</dimen>
 </resources>
