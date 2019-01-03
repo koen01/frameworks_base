@@ -233,7 +233,7 @@ public class KeyguardStatusView extends GridLayout implements
         RelativeLayout.LayoutParams customlayoutParams =
                 (RelativeLayout.LayoutParams) mCustomClockView.getLayoutParams();
         customlayoutParams.bottomMargin = getResources().getDimensionPixelSize(
-                R.dimen.bottom_text_spacing_digital);
+                R.dimen.keyguard_security_view_top_margin);
         mCustomClockView.setLayoutParams(customlayoutParams);
 
         layoutParams = (RelativeLayout.LayoutParams) mClockSeparator.getLayoutParams();
@@ -467,9 +467,6 @@ public class KeyguardStatusView extends GridLayout implements
                 break;
             case 2: // custom analog
                 params.addRule(RelativeLayout.BELOW, R.id.custom_clock_view);
-                break;
-            case 3: // du analog
-                params.addRule(RelativeLayout.BELOW, R.id.du_clock_view);
                 break;
             case 4: // sammy
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
