@@ -45,6 +45,8 @@ import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
+import com.android.systemui.tuner.TunerService;
+import com.android.systemui.tuner.TunerService.Tunable;
 
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
@@ -52,7 +54,7 @@ import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
  * updated by the StatusBarIconController and DarkIconManager while it is attached.
  */
 public class CollapsedStatusBarFragment extends Fragment implements CommandQueue.Callbacks,
-        StatusBarStateController.StateListener {
+        StatusBarStateController.StateListener, Tunable {
 
     public static final String TAG = "CollapsedStatusBarFragment";
     private static final String EXTRA_PANEL_STATE = "panel_state";
@@ -64,7 +66,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private KeyguardMonitor mKeyguardMonitor;
     private NetworkController mNetworkController;
     private LinearLayout mSystemIconArea;
-    private View mClockView;
     private View mNotificationIconAreaInner;
     private View mCenteredIconArea;
     private int mDisabled1;
@@ -75,6 +76,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private BatteryMeterView mBatteryMeterView;
     private StatusIconContainer mStatusIcons;
     private int mSignalClusterEndPadding = 0;
+
+    // clock position
+    private ClockController mClockController;
+    private boolean mIsClockBlacklisted;
 
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
@@ -98,6 +103,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mNetworkController = Dependency.get(NetworkController.class);
         mStatusBarStateController = Dependency.get(StatusBarStateController.class);
+        Dependency.get(TunerService.class).addTunable(this, StatusBarIconController.ICON_BLACKLIST);
         mStatusBarComponent = SysUiServiceProvider.getComponent(getContext(), StatusBar.class);
         mCommandQueue = SysUiServiceProvider.getComponent(getContext(), CommandQueue.class);
     }
@@ -127,7 +133,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mStatusIcons.setPadding(mStatusIcons.getPaddingLeft(), mStatusIcons.getPaddingTop(), (batteryStyle == 5/*hidden*/ ? 0 : mSignalClusterEndPadding), mStatusIcons.getPaddingBottom());
         mBatteryMeterView = mStatusBar.findViewById(R.id.battery);
         mBatteryMeterView.addCallback(mBatteryMeterViewCallback);
-        mClockView = mStatusBar.findViewById(R.id.clock);
+        mClockController = new ClockController(mStatusBar);
         showSystemIconArea(false);
         showClock(false);
         initEmergencyCryptkeeperText();
@@ -165,6 +171,15 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
         if (mBatteryMeterView != null) {
             mBatteryMeterView.removeCallback(mBatteryMeterViewCallback);
+        }
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        boolean wasClockBlacklisted = mIsClockBlacklisted;
+        mIsClockBlacklisted = StatusBarIconController.getIconBlacklist(newValue).contains("clock");
+        if (wasClockBlacklisted && !mIsClockBlacklisted) {
+            showClock(false);
         }
     }
 
@@ -218,8 +233,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
         // The clock may have already been hidden, but we might want to shift its
         // visibility to GONE from INVISIBLE or vice versa
-        if ((diff1 & DISABLE_CLOCK) != 0 || mClockView.getVisibility() != clockHiddenMode()) {
-            if ((state1 & DISABLE_CLOCK) != 0) {
+        if ((diff1 & DISABLE_CLOCK) != 0 ||
+                mClockController.getClock().getVisibility() != clockHiddenMode()) {
+            if ((state1 & DISABLE_CLOCK) != 0 || mIsClockBlacklisted) {
                 hideClock(animate);
             } else {
                 showClock(animate);
@@ -242,7 +258,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             state |= DISABLE_SYSTEM_INFO;
             state |= DISABLE_CLOCK;
         }
-
 
         if (mNetworkController != null && EncryptionHelper.IS_DATA_ENCRYPTED) {
             if (mNetworkController.hasEmergencyCryptKeeperText()) {
@@ -275,18 +290,20 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideSystemIconArea(boolean animate) {
         animateHide(mSystemIconArea, animate);
+        animateHide(mClockController.getClockLayout(), animate);
     }
 
     public void showSystemIconArea(boolean animate) {
         animateShow(mSystemIconArea, animate);
+        animateShow(mClockController.getClockLayout(), animate);
     }
 
     public void hideClock(boolean animate) {
-        animateHiddenState(mClockView, clockHiddenMode(), animate);
+        animateHiddenState(mClockController.getClock(), clockHiddenMode(), animate);
     }
 
     public void showClock(boolean animate) {
-        animateShow(mClockView, animate);
+        animateShow(mClockController.getClock(), animate);
     }
 
     /**
