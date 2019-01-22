@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.du;
+package com.android.internal.util.scorpion;
 
 import android.app.ActivityManagerNative;
 import android.Manifest;

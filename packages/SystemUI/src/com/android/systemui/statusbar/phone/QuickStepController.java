@@ -61,7 +61,7 @@ import com.android.systemui.shared.recents.IOverviewProxy;
 import com.android.systemui.shared.recents.utilities.Utilities;
 import com.android.systemui.shared.system.NavigationBarCompat;
 import com.android.internal.graphics.ColorUtils;
-import com.android.internal.util.du.ActionUtils;
+import com.android.internal.util.scorpion.ActionUtils;
 
 /**
  * Class to detect gestures on the navigation bar and implement quick scrub.

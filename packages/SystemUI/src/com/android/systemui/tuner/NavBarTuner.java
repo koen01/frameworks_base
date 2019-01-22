@@ -53,7 +53,7 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.tuner.TunerService.Tunable;
 
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.scorpion.Utils;
 
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 

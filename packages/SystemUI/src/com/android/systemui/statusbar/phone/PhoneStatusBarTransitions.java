@@ -22,7 +22,7 @@ import android.animation.ObjectAnimator;
 import android.content.res.Resources;
 import android.view.View;
 
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.scorpion.Utils;
 import com.android.systemui.R;
 
 public final class PhoneStatusBarTransitions extends BarTransitions {

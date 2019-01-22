@@ -66,7 +66,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.DumpUtils;
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.scorpion.Utils;
 import com.android.server.am.BatteryStatsService;
 import com.android.server.lights.Light;
 import com.android.server.lights.LightsManager;

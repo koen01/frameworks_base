@@ -36,7 +36,7 @@ import android.widget.ListView;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.ThemeAccentUtils;
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.scorpion.Utils;
 
 import com.android.systemui.Prefs;
 import com.android.systemui.R;
@@ -282,7 +282,7 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
 
         @Override
         public int getMetricsCategory() {
-            return MetricsEvent.CUSTOM_QUICK_TILES;
+            return MetricsEvent.SCORPION;
         }
 
         @Override
@@ -352,7 +352,7 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.CUSTOM_QUICK_TILES;
+        return MetricsEvent.SCORPION;
     }
 
     @Override

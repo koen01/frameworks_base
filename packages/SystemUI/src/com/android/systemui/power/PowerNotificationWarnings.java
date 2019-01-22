@@ -690,7 +690,7 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
                 dismissLowBatteryNotification();
             } else if (action.equals(ACTION_SHOW_START_SAVER_CONFIRMATION)) {
                 dismissLowBatteryNotification();
-                if (!com.android.internal.util.du.Utils.isPlugged(context)) {
+                if (!com.android.internal.util.scorpion.Utils.isPlugged(context)) {
                     showStartSaverConfirmation();
                 }
             } else if (action.equals(ACTION_DISMISSED_WARNING)) {

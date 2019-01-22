@@ -25,7 +25,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.scorpion.Utils;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
