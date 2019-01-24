@@ -328,11 +328,11 @@
                   android:exported="true">
         </activity>
 
-        <activity android:name=".tuner.NavBarActivity"
+        <activity android:name=".tuner.NavbarActivity"
                   android:theme="@style/ExTunerSettings"
                   android:label="@string/nav_bar"
                   android:process=":tuner"
-                  android:parentActivityName="com.nest.settings.fragments.NavbarSettings"
+                  android:parentActivityName="com.nest.settings.fragments.ButtonSettings"
                   android:exported="true">
         </activity>
 
