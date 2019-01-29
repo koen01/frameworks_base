@@ -943,7 +943,7 @@ public class Build {
     public static final String FINGERPRINT = deriveFingerprint();
 
     /* @hide */
-    public static final String DU_FINGERPRINT = SystemProperties.get("ro.du.fingerprint",
+    public static final String SCORPION_FINGERPRINT = SystemProperties.get("ro.scorpion.fingerprint",
             deriveFingerprint());
 
     /**

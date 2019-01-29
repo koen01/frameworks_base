@@ -4262,7 +4262,7 @@ public class ShortcutService extends IShortcutService.Stub {
 
     // Injection point.
     String injectBuildFingerprint() {
-        return Build.DU_FINGERPRINT;
+        return Build.SCORPION_FINGERPRINT;
     }
 
     final void wtf(String message) {
