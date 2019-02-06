@@ -70,4 +70,9 @@
     <!-- Membar spacing -->
     <dimen name="recents_membar_spacing">12dp</dimen>
 
+    <!-- Elmyra -->
+    <item type="dimen" name="elmyra_progress_alpha">0.35</item>
+    <item type="dimen" name="elmyra_progress_detect_threshold">0.5</item>
+    <item type="dimen" name="elmyra_progress_report_threshold">0.55</item>
+    <item type="dimen" name="elmyra_screen_off_adjustment">-0.1</item>
 </resources>
