@@ -46,7 +46,6 @@ import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.ThemeTile;
 import com.android.systemui.qs.tiles.UserTile;
-import com.android.systemui.qs.tiles.WeatherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.qs.QSTileHost;
@@ -116,8 +115,6 @@ public class QSFactoryImpl implements QSFactory {
                 return new ImmersiveTile(mHost);
             case "heads_up":
                 return new HeadsUpTile(mHost);
-            case "weather":
-                return new WeatherTile(mHost);
             case "aod":
                 return new AODTile(mHost);
             case "reboot":

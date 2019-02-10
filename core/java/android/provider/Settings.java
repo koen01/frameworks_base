@@ -1833,13 +1833,6 @@ public final class Settings {
     private static final String JID_RESOURCE_PREFIX = "android";
 
     public static final String AUTHORITY = "settings";
-        /**
-         * @hide
-         */
-        public static final String OMNI_LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
-         /** @hide */
-        private static final Validator OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
 
     private static final String TAG = "Settings";
     private static final boolean LOCAL_LOGV = false;
@@ -4917,39 +4910,7 @@ public final class Settings {
         public static final String BOTTOM_GESTURE_SWIPE_LIMIT = "bottom_gesture_navigation_swipe_limit";
 
         /** @hide */
-        private static final Validator BOTTOM_GESTURE_SWIPE_LIMIT_VALIDATOR = ANY_INTEGER_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String OMNIJAWS_WEATHER_ICON_PACK = "omnijaws_weather_icon_pack";
-         /** @hide */
-        private static final Validator OMNIJAWS_WEATHER_ICON_PACK_VALIDATOR =
-                ANY_STRING_VALIDATOR;        
-
-        /**
-         * @hide
-         */
-        public static final String OMNI_LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
-         /** @hide */
-        private static final Validator OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String LOCKSCREEN_WEATHER_SHOW_TEMP = "lockscreen_weather_show_temp";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_WEATHER_SHOW_TEMP_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String LOCKSCREEN_WEATHER_SHOW_CITY = "lockscreen_weather_show_city";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_WEATHER_SHOW_CITY_VALIDATOR = BOOLEAN_VALIDATOR;
+        private static final Validator BOTTOM_GESTURE_SWIPE_LIMIT_VALIDATOR = ANY_INTEGER_VALIDATOR;  
 
         /**
          * Whether to show battery percent on ambient bottom
@@ -5096,10 +5057,6 @@ public final class Settings {
             OMNI_USE_BOTTOM_GESTURE_NAVIGATION,
             BOTTOM_GESTURE_TRIGGER_TIMEOUT,
             BOTTOM_GESTURE_SWIPE_LIMIT,
-            OMNIJAWS_WEATHER_ICON_PACK,
-            OMNI_LOCKSCREEN_WEATHER_ENABLED,
-            LOCKSCREEN_WEATHER_SHOW_TEMP,
-            LOCKSCREEN_WEATHER_SHOW_CITY,
             RECENTS_COMPONENT,
             NOTIFICATION_LIGHT_PULSE,
             STATUS_BAR_CUSTOM_HEADER,
@@ -5249,10 +5206,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_USE_BOTTOM_GESTURE_NAVIGATION);
             PRIVATE_SETTINGS.add(BOTTOM_GESTURE_TRIGGER_TIMEOUT);
             PRIVATE_SETTINGS.add(BOTTOM_GESTURE_SWIPE_LIMIT);
-            PRIVATE_SETTINGS.add(OMNIJAWS_WEATHER_ICON_PACK);
-            PRIVATE_SETTINGS.add(OMNI_LOCKSCREEN_WEATHER_ENABLED);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_TEMP);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_CITY);
             PRIVATE_SETTINGS.add(RECENTS_COMPONENT);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_SHADOW);
@@ -5365,11 +5318,6 @@ public final class Settings {
                     OMNI_USE_BOTTOM_GESTURE_NAVIGATION_VALIDATOR);
             VALIDATORS.put(BOTTOM_GESTURE_TRIGGER_TIMEOUT, BOTTOM_GESTURE_TRIGGER_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BOTTOM_GESTURE_SWIPE_LIMIT, BOTTOM_GESTURE_SWIPE_LIMIT_VALIDATOR);
-            VALIDATORS.put(OMNIJAWS_WEATHER_ICON_PACK, OMNIJAWS_WEATHER_ICON_PACK_VALIDATOR);
-            VALIDATORS.put(OMNI_LOCKSCREEN_WEATHER_ENABLED,
-                    OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_WEATHER_SHOW_TEMP, LOCKSCREEN_WEATHER_SHOW_TEMP_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_WEATHER_SHOW_CITY, LOCKSCREEN_WEATHER_SHOW_CITY_VALIDATOR);
             VALIDATORS.put(RECENTS_COMPONENT,RECENTS_COMPONENT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER,

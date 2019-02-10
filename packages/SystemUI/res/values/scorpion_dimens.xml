@@ -47,9 +47,6 @@
     <!-- Status Bar Padding -->
     <dimen name="qs_corner_content_padding">8dp</dimen>
 
-    <!-- Omnijaws Weather -->   
-    <dimen name="current_weather_image_size">42dp</dimen>
-
     <!-- OmniStyle -->
     <dimen name="qs_header_image_offset">25dp</dimen>
     <dimen name="qs_header_image_side_margin">4dp</dimen>
