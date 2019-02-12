@@ -376,6 +376,11 @@ public class KeyguardStatusView extends GridLayout implements
         }
     }
 
+    private int getLockClockFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_CLOCK_FONTS, 0);
+    }
+
     private void updateClockColor() {
         ContentResolver resolver = getContext().getContentResolver();
         int color = Settings.System.getInt(resolver,
@@ -404,11 +409,6 @@ public class KeyguardStatusView extends GridLayout implements
         if (mOwnerInfo != null) {
             mOwnerInfo.setTextColor(color);
         }
-    }
-
-    private int getLockClockFont() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 0);
     }
 
     private void refreshFormat() {
@@ -731,9 +731,6 @@ public class KeyguardStatusView extends GridLayout implements
 
         final int blendedTextColor = ColorUtils.blendARGB(mTextColor, Color.WHITE, mDarkAmount);
         updateDozeVisibleViews();
-        mKeyguardSlice.setDarkAmount(mDarkAmount);
-        mClockView.setTextColor(blendedTextColor);
-        mClockSeparator.setBackgroundColor(blendedTextColor);
         mCustomClockView.setDark(dark);
         updateVisibilities();
     }
