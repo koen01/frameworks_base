@@ -628,52 +628,28 @@ public class KeyguardStatusView extends GridLayout implements
             mClockView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
         }
         if (lockClockFont == 17) {
-            mClockView.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-        }
-        if (lockClockFont == 17) {
             mClockView.setTypeface(Typeface.create("sans-serif-black_italic", Typeface.ITALIC));
         }
-        if (lockClockFont == 17) {
+        if (lockClockFont == 18) {
             mClockView.setTypeface(Typeface.create("sans-serif-dancingscript", Typeface.NORMAL));
         }
-        if (lockClockFont == 18) {
+        if (lockClockFont == 19) {
             mClockView.setTypeface(Typeface.create("sans-serif-dancingscript_bold", Typeface.BOLD));
         }
-        if (lockClockFont == 17) {
+        if (lockClockFont == 20) {
             mClockView.setTypeface(Typeface.create("sans-serif-comingsoon", Typeface.NORMAL));
         }
-        if (lockClockFont == 19) {
+        if (lockClockFont == 21) {
             mClockView.setTypeface(Typeface.create("sans-serif-notoserif", Typeface.NORMAL));
         }
-        if (lockClockFont == 20) {
+        if (lockClockFont == 22) {
             mClockView.setTypeface(Typeface.create("sans-serif-notoserif_italic", Typeface.ITALIC));
         }
-        if (lockClockFont == 21) {
+        if (lockClockFont == 23) {
             mClockView.setTypeface(Typeface.create("sans-serif-notoserif_bold", Typeface.BOLD));
         }
-        if (lockClockFont == 21) {
+        if (lockClockFont == 24) {
             mClockView.setTypeface(Typeface.create("sans-serif-notoserif_bold_italic", Typeface.BOLD_ITALIC));
-        }
-        if (lockClockFont == 21) {
-            mClockView.setTypeface(Typeface.create("sans-serif-gobold_light", Typeface.NORMAL));
-        }
-        if (lockClockFont == 21) {
-            mClockView.setTypeface(Typeface.create("sans-serif-roadrage", Typeface.NORMAL));
-        }
-        if (lockClockFont == 21) {
-            mClockView.setTypeface(Typeface.create("sans-serif-Snowstorm", Typeface.NORMAL));
-        }
-        if (lockClockFont == 21) {
-            mClockView.setTypeface(Typeface.create("sans-serif-googlesans", Typeface.NORMAL));
-        }
-        if (lockClockFont == 19) {
-            mClockView.setTypeface(Typeface.create("sans-serif-neoneon", Typeface.NORMAL));
-        }
-        if (lockClockFont == 19) {
-            mClockView.setTypeface(Typeface.create("sans-serif-themeable", Typeface.NORMAL));
-        }
-        if (lockClockFont == 19) {
-            mClockView.setTypeface(Typeface.create("sans-serif-samsung", Typeface.NORMAL));
         }
     }
 
