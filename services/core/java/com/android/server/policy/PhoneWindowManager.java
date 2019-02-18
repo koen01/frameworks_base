@@ -10018,6 +10018,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case NavbarUtilities.KEY_ACTION_QS_PANEL:
                 ActionUtils.toggleQsPanel();
                 break;
+            case NavbarUtilities.KEY_ACTION_RINGER_MODES:
+                ActionUtils.toggleRingerModes(mContext);
+                break;
         }
     }
 
