@@ -89,8 +89,7 @@ public class WeatherClient {
                 updateWeatherAndNotify(false);
             } else if (updateIntentAction.equals(intent.getAction())) {
                 updateWeatherAndNotify(false);
-            } else if (Intent.ACTION_TIME_CHANGED.equals(intent.getAction())
-                    || Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) {
+            } else if (Intent.ACTION_TIME_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) {
                 updateWeatherAndNotify(true);
             }
         }
@@ -98,8 +97,7 @@ public class WeatherClient {
 
     public WeatherClient(Context context) {
         mContext = context;
-        mContext.enforceCallingOrSelfPermission(SERVICE_PACKAGE_PERMISSION,
-                "Missing or invalid weather permission: " + SERVICE_PACKAGE_PERMISSION);
+        mContext.enforceCallingOrSelfPermission(SERVICE_PACKAGE_PERMISSION, "Missing or invalid weather permission: " + SERVICE_PACKAGE_PERMISSION);
         updateIntentAction = "updateIntentAction_" + Integer.toString(getRandomInt());
         pendingWeatherUpdate = PendingIntent.getBroadcast(mContext, getRandomInt(), new Intent(updateIntentAction), 0);
         mObserver = new ArrayList<>();
