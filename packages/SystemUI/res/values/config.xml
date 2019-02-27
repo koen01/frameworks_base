@@ -349,6 +349,7 @@
         <item>com.android.systemui.ScreenDecorations</item>
         <item>com.android.systemui.fingerprint.FingerprintDialogImpl</item>
         <item>com.android.systemui.SliceBroadcastRelayHandler</item>
+        <item>com.android.systemui.scorpion.AppPickerServices</item>
     </string-array>
 
     <!-- SystemUI vender service, used in config_systemUIServiceComponents. -->
