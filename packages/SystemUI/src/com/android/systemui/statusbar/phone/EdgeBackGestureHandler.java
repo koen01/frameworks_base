@@ -657,6 +657,12 @@ public class EdgeBackGestureHandler implements DisplayListener {
             case 14: // Partial Screenshot
                 Utils.takeScreenshot(false);
                 break;
+            case 15: // Skip song
+                Utils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_NEXT);
+                break;
+            case 16: // Previous song
+                Utils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                break;
         }
     }
 

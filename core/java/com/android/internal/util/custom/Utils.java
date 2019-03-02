@@ -42,6 +42,7 @@ import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
 
@@ -166,6 +167,10 @@ public class Utils {
         FireActions.killForegroundApp();
     }
 
+    public static void sendSystemKeyToStatusBar(int keyCode) {
+        FireActions.sendSystemKeyToStatusBar(keyCode);
+    }
+
     private static final class FireActions {
         private static IStatusBarService mStatusBarService = null;
 
@@ -176,6 +181,17 @@ public class Utils {
                             ServiceManager.getService("statusbar"));
                 }
                 return mStatusBarService;
+            }
+        }
+
+        public static void sendSystemKeyToStatusBar(int keyCode) {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.handleSystemKey(keyCode);
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
             }
         }
 
