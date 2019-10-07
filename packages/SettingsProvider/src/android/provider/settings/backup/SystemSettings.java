@@ -92,5 +92,6 @@ public class SystemSettings {
         Settings.System.FULLSCREEN_GESTURES,
         Settings.System.NETWORK_TRAFFIC_STATE,
         Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD,
+        Settings.System.DOZE_ON_CHARGE,
     };
 }

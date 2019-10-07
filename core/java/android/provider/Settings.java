@@ -5601,6 +5601,18 @@ public final class Settings {
         public static final String STATUSBAR_COLORED_ICONS = "statusbar_colored_icons";
 
         /**
+         * Whether to enable DOZE only when charging
+         * @hide
+         */
+        public static final String DOZE_ON_CHARGE = "doze_on_charge";
+
+        /**
+         * Hidden setting of the current atate of DOZE only when charging
+         * @hide
+         */
+        public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
+
+        /**
          * Whether to hide navbar pill and keyboard space.
          * Default 0.
          * @hide
