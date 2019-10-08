@@ -1006,7 +1006,7 @@ public class Build {
     /** A string that uniquely identifies this build.  Do not attempt to parse this value. */
     public static final String FINGERPRINT = deriveFingerprint();
 
-    /* @hide */
+    /** @hide */
     public static final String ABC_FINGERPRINT = SystemProperties.get("ro.abc.fingerprint",
             deriveFingerprint());
 
