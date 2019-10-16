@@ -36,10 +36,14 @@
   <java-symbol type="string" name="adb_both_active_notification_title" />
   <java-symbol type="string" name="adb_active_generic_notification_message" />
 
+  <!-- Bluetooth service -->
+  <java-symbol type="string" name="bluetooth_airplane_mode_toast" />
+
   <!-- Light / Regular style fonts -->
   <java-symbol type="string" name="config_lightFontFamily" />
   <java-symbol type="string" name="config_regularFontFamily" />
 
   <!-- Themes -->
   <java-symbol type="color" name="theme_generic_semi_transparent_color" />
+
 </resources>
