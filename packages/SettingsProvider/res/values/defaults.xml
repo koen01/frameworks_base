@@ -243,4 +243,8 @@
 
     <!-- Default for setting for disabling automatic OTA updates -->
     <integer name="def_ota_disable_automatic_update">1</integer>
+
+    <!-- Enable dev settings by default -->
+    <integer name="def_enable_dev_settings">1</integer>
+
 </resources>
