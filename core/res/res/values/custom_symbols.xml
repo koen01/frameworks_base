@@ -16,6 +16,8 @@
 */
 -->
 <resources>
+  <!-- Custom app permissions -->
+  <java-symbol type="array" name="config_customPermissionsList" />
 
   <!-- Custom default wallpaper -->
   <java-symbol type="drawable" name="custom_default_wallpaper" />
@@ -27,5 +29,4 @@
   <java-symbol type="string" name="reboot_to_bootloader_message" />
   <java-symbol type="string" name="reboot_title" />
   <java-symbol type="string" name="reboot_message" />
-
 </resources>
