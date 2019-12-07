@@ -25,7 +25,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array translatable="false" name="config_customPermissionsList">
-        <!-- <item>more packages</item>-->
+        <item>com.android.wallpaper.livepicker</item>
     </string-array>
 
     <!-- Paths to the libraries that contain device specific key handlers -->
