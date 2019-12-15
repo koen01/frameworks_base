@@ -1810,6 +1810,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_LOCKSCREEN_MEDIA_ART),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.EDGE_GESTURE_Y_DEAD_ZONE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -1838,6 +1841,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.SHOW_LOCKSCREEN_MEDIA_ART))) {
                 setLockScreenMediaArt();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.EDGE_GESTURE_Y_DEAD_ZONE))) {
+                setEdgeGestureDeadZone();
             }
         }
 
@@ -1849,6 +1855,16 @@ public class StatusBar extends SystemUI implements DemoMode,
             setUseLessBoringHeadsUp();
             setLockScreenMediaBlurLevel();
             setLockScreenMediaArt();
+            setEdgeGestureDeadZone();
+        }
+    }
+
+    private void setEdgeGestureDeadZone() {
+        if (getNavigationBarView() != null) {
+            int mode = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.EDGE_GESTURE_Y_DEAD_ZONE, 0,
+                UserHandle.USER_CURRENT);
+            getNavigationBarView().setEdgeGestureDeadZone(mode);
         }
     }
 
