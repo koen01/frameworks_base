@@ -5044,6 +5044,12 @@ public final class Settings {
           * @hide
           */
          public static final String QS_HEADER_BG_ALPHA = "qs_header_bg_alpha";
+		 
+		/**
+         * Whether to use new QS panel bg tint or not
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_NEW_TINT = "qs_panel_bg_use_new_tint";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -5192,6 +5198,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             PRIVATE_SETTINGS.add(FOOTER_TEXT_SHOW);
             PRIVATE_SETTINGS.add(QS_HEADER_BG_ALPHA);
+   	        PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
         }
 
         /**
