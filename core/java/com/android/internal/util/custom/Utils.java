@@ -19,6 +19,8 @@ package com.android.internal.util.custom;
 import android.app.NotificationManager;
 import android.app.ActivityManager;
 import android.Manifest;
+import android.app.ActivityManagerNative;
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.om.IOverlayManager;
@@ -313,6 +315,15 @@ public class Utils {
                 throws RemoteException {
             return mService.getOverlayInfosForTarget(target, userId);
         }
+    }
+
+    // Method to detect whether the system dark theme is enabled or not
+    public static boolean isDarkTheme(Context context) {
+        UiModeManager mUiModeManager =
+                context.getSystemService(UiModeManager.class);
+        if (mUiModeManager == null) return false;
+        int mode = mUiModeManager.getNightMode();
+        return (mode == UiModeManager.MODE_NIGHT_YES);
     }
 
     // Cycle ringer modes
