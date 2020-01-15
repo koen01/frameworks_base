@@ -43,6 +43,9 @@
     <color name="quick_settings_theme_tile_red">#FF990C04</color>
     <color name="quick_settings_theme_tile_teal">#FF009688</color>
     <color name="quick_settings_theme_tile_yellow">#FFFFEB3B</color>
+    <color name="quick_settings_theme_tile_scorpiongreen">#FF00C853</color>
+    <color name="quick_settings_theme_tile_scorpionpurple">#FF673AB7</color>
+    <color name="quick_settings_theme_tile_scorpionred">#FFFF0000</color>
 
     <!-- Power Menu -->
     <color name="powermenu_icon_tint">@*android:color/accent_device_default_light</color>
