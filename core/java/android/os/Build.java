@@ -274,6 +274,13 @@ public class Build {
                 "ro.build.version.security_patch", "");
 
         /**
+         * The user-visible Scorpion security patch level.
+         * @hide
+         */
+        public static final String SECURITY_PATCH_SRX = SystemProperties.get(
+                "ro.scorpion.version.security_patch", "");
+
+        /**
          * The user-visible SDK version of the framework in its raw String
          * representation; use {@link #SDK_INT} instead.
          *
