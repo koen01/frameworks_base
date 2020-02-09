@@ -104,4 +104,7 @@
     <string name="quick_settings_monotoggle_tile">Audio mode</string>
     <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
     <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
+
+    <string name="recents_app_killed">App killed</string>
+
 </resources>
