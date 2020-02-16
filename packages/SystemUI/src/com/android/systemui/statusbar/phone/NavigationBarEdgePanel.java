@@ -123,7 +123,7 @@ public class NavigationBarEdgePanel extends View {
     private static final Interpolator RUBBER_BAND_INTERPOLATOR_APPEAR
             = new PathInterpolator(1.0f / RUBBER_BAND_AMOUNT_APPEAR, 1.0f, 1.0f, 1.0f);
 
-    private int mTImeout = 5000; //ms
+    private int mTImeout = 4000; //ms
     private boolean mIsLauncherShowing = true;
     private int mRunningTaskId = 0;
     private ComponentName mTaskComponentName = null;
@@ -406,16 +406,16 @@ public class NavigationBarEdgePanel extends View {
             UserHandle.USER_CURRENT);
         switch (timeout) {
             default: // 0 - slowest
-                mTImeout = 5000;
-                break;
-            case 1:
                 mTImeout = 4000;
                 break;
-            case 2: 
+            case 1:
                 mTImeout = 3000;
                 break;
-            case 3: // fastest
+            case 2: 
                 mTImeout = 2000;
+                break;
+            case 3: // fastest
+                mTImeout = 1000;
                 break;
         }
     }
