@@ -1868,6 +1868,15 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.LOCKSCREEN_CLOCK_SELECTION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LONG_BACK_SWIPE_TIMEOUT),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LEFT_LONG_BACK_SWIPE_ACTION),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -1898,9 +1907,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                 setLockScreenMediaArt();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.EDGE_GESTURE_Y_DEAD_ZONE))) {
-                setEdgeGestureDeadZone();
+                setGestureNavOptions();
             } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_CLOCK_SELECTION))) {
                 updateKeyguardStatusSettings();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LONG_BACK_SWIPE_TIMEOUT)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.LEFT_LONG_BACK_SWIPE_ACTION)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION))) {
+                setGestureNavOptions();
             }
         }
 
@@ -1912,8 +1925,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             setUseLessBoringHeadsUp();
             setLockScreenMediaBlurLevel();
             setLockScreenMediaArt();
-            setEdgeGestureDeadZone();
             updateKeyguardStatusSettings();
+            setGestureNavOptions();
         }
     }
 
@@ -1921,9 +1934,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         mNotificationPanel.updateKeyguardStatusSettings();
     }
 
-    private void setEdgeGestureDeadZone() {
+    private void setGestureNavOptions() {
         if (getNavigationBarView() != null) {
             getNavigationBarView().setEdgeGestureDeadZone();
+            getNavigationBarView().setLongSwipeOptions();
         }
     }
 
