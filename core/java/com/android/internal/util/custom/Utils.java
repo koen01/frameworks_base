@@ -17,6 +17,7 @@
 package com.android.internal.util.custom;
 
 import android.app.ActivityManager;
+import android.app.NotificationManager;
 import android.Manifest;
 import android.app.ActivityManagerNative;
 import android.app.UiModeManager;
@@ -38,6 +39,7 @@ import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.SystemClock;
 import android.os.UserHandle;
+import android.os.Vibrator;
 import android.util.DisplayMetrics;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
@@ -47,6 +49,9 @@ import com.android.internal.statusbar.IStatusBarService;
 
 import java.util.List;
 import java.util.Locale;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
+import static android.content.Context.VIBRATOR_SERVICE;
 
 public class Utils {
 
@@ -208,6 +213,20 @@ public class Utils {
                 } catch (RemoteException e) {}
             }
         }
+
+        // Toggle qs panel
+        public static void toggleQsPanel() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.expandSettingsPanel(null);
+                } catch (RemoteException e) {}
+            }
+        }
+    }
+
+    public static void toggleQsPanel() {
+        FireActions.toggleQsPanel();
     }
 
     public static void toggleNotifications() {
@@ -320,5 +339,29 @@ public class Utils {
         DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         float px = 24 * (metrics.densityDpi / 160f);
         return result > Math.round(px);
+    }
+
+    // Cycle ringer modes
+    public static void toggleRingerModes (Context context) {
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        Vibrator mVibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+
+        switch (am.getRingerMode()) {
+            case AudioManager.RINGER_MODE_NORMAL:
+                if (mVibrator.hasVibrator()) {
+                    am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                }
+                break;
+            case AudioManager.RINGER_MODE_VIBRATE:
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                NotificationManager notificationManager =
+                        (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.setInterruptionFilter(
+                        NotificationManager.INTERRUPTION_FILTER_PRIORITY);
+                break;
+            case AudioManager.RINGER_MODE_SILENT:
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                break;
+        }
     }
 }
