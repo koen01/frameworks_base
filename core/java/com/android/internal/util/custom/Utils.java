@@ -16,6 +16,7 @@
 
 package com.android.internal.util.custom;
 
+import android.app.NotificationManager;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -24,12 +25,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
+import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
 
@@ -37,6 +40,9 @@ import com.android.internal.R;
 import com.android.internal.statusbar.IStatusBarService;
 
 import java.util.Locale;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
+import static android.content.Context.VIBRATOR_SERVICE;
 
 public class Utils {
 
@@ -168,6 +174,20 @@ public class Utils {
                 } catch (RemoteException e) {}
             }
         }
+
+        // Toggle qs panel
+        public static void toggleQsPanel() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.expandSettingsPanel(null);
+                } catch (RemoteException e) {}
+            }
+        }
+    }
+
+    public static void toggleQsPanel() {
+        FireActions.toggleQsPanel();
     }
 
     public static void toggleNotifications() {
@@ -200,5 +220,35 @@ public class Utils {
         } catch (RemoteException ex) {
         }
         return hasNavbar;
+    }
+
+    // Cycle ringer modes
+    public static void toggleRingerModes (Context context) {
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        Vibrator mVibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+
+        switch (am.getRingerMode()) {
+            case AudioManager.RINGER_MODE_NORMAL:
+                if (mVibrator.hasVibrator()) {
+                    am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                }
+                break;
+            case AudioManager.RINGER_MODE_VIBRATE:
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                NotificationManager notificationManager =
+                        (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.setInterruptionFilter(
+                        NotificationManager.INTERRUPTION_FILTER_PRIORITY);
+                break;
+            case AudioManager.RINGER_MODE_SILENT:
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                break;
+        }
+    }
+
+    // Volume panel
+    public static void toggleVolumePanel(Context context) {
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        am.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
     }
 }
