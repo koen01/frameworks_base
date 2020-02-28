@@ -16,6 +16,7 @@
 
 package com.android.internal.util.custom;
 
+import android.app.ActivityManager;
 import android.Manifest;
 import android.app.ActivityManagerNative;
 import android.app.UiModeManager;
@@ -187,6 +188,20 @@ public class Utils {
                 } catch (RemoteException e) {}
             }
         }
+
+        // Clear notifications
+        public static void clearAllNotifications() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.onClearAllNotifications(ActivityManager.getCurrentUser());
+                } catch (RemoteException e) {}
+            }
+        }
+    }
+
+    public static void clearAllNotifications() {
+        FireActions.clearAllNotifications();
     }
 
     public static void setPartialScreenshot(boolean active) {
