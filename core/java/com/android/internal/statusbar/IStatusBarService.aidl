@@ -169,4 +169,6 @@ interface IStatusBarService
      * Elmyra (Active Edge)
      */
     void triggerElmyraAction(String action);
+
+    void killForegroundApp();
 }

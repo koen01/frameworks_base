@@ -240,4 +240,6 @@ oneway interface IStatusBar
     void setBlockedGesturalNavigation(boolean blocked);
 
     void triggerElmyraAction(String action);
+
+    void killForegroundApp();
 }
