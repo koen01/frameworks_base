@@ -17,20 +17,13 @@
 package com.android.systemui.statusbar.phone;
 
 import android.animation.ValueAnimator;
-import android.app.Activity;
-import android.app.ActivityManagerNative;
-import android.app.IActivityManager;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Canvas;;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
-import android.os.RemoteException;
 import android.os.SystemClock;
-import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.util.DisplayMetrics;
 import android.util.MathUtils;
@@ -40,7 +33,6 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.PathInterpolator;
-import android.widget.Toast;
 
 import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
@@ -122,11 +114,7 @@ public class NavigationBarEdgePanel extends View {
     private static final Interpolator RUBBER_BAND_INTERPOLATOR_APPEAR
             = new PathInterpolator(1.0f / RUBBER_BAND_AMOUNT_APPEAR, 1.0f, 1.0f, 1.0f);
 
-    private static final int LONG_SWIPE_ACTION_TIMEOUT = 4000; //ms
-    private boolean mIsLauncherShowing = true;
-    private int mRunningTaskId = 0;
-    private ComponentName mTaskComponentName = null;
-    private Context mContext;
+    private static final int LONG_SWIPE_ACTION_TIMEOUT = 10000; //ms
 
     private final VibratorHelper mVibratorHelper;
 
@@ -264,7 +252,6 @@ public class NavigationBarEdgePanel extends View {
 
     public NavigationBarEdgePanel(Context context) {
         super(context);
-        mContext = context;
 
         mVibratorHelper = Dependency.get(VibratorHelper.class);
 
@@ -424,27 +411,12 @@ public class NavigationBarEdgePanel extends View {
             case MotionEvent.ACTION_CANCEL: {
                 mEndTime = System.currentTimeMillis();
                 mLongSwipe = ((mEndTime - mStartTime) >= LONG_SWIPE_ACTION_TIMEOUT);
-                boolean killedOrLongSwipe = false;
-                if (mLongSwipe && !mIsLauncherShowing && mTaskComponentName != null &&
-                        mContext.checkCallingOrSelfPermission(android.Manifest.permission.FORCE_STOP_PACKAGES)
-                        == PackageManager.PERMISSION_GRANTED) {
-                    resetOnDown();
-                    IActivityManager iam = ActivityManagerNative.getDefault();
-                    try {
-                        iam.forceStopPackage(mTaskComponentName.getPackageName(), UserHandle.USER_CURRENT); // kill app
-                        iam.removeTask(mRunningTaskId); // remove app from recents
-                        killedOrLongSwipe = true;
-                    } catch (RemoteException e) {
-                        killedOrLongSwipe = false;
-                    }
-                    if (killedOrLongSwipe) {
-                        Toast appKilled = Toast.makeText(mContext, R.string.recents_app_killed,
-                                Toast.LENGTH_SHORT);
-                        appKilled.show();
-                    }
+                boolean mHandleBack = !mLongSwipe;
+                if (mLongSwipe) {
+                    // do something
                 }
 
-                if (!killedOrLongSwipe) {
+                if (mHandleBack) {
                     if (mTriggerBack) {
                         triggerBack();
                     } else {
@@ -460,12 +432,6 @@ public class NavigationBarEdgePanel extends View {
                 }
             }
         }
-    }
-
-    public void setRunningTask(boolean launcherShowing, int taskId, ComponentName taskComponentName) {
-        mIsLauncherShowing = launcherShowing;
-        mRunningTaskId = taskId;
-        mTaskComponentName = taskComponentName;
     }
 
     @Override
