@@ -654,6 +654,9 @@ public class EdgeBackGestureHandler implements DisplayListener {
             case 13: // Kill app
                 Utils.killForegroundApp();
                 break;
+            case 14: // Partial Screenshot
+                Utils.takeScreenshot(false);
+                break;
         }
     }
 
