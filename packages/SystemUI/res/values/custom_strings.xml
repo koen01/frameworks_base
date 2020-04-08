@@ -128,4 +128,8 @@
 
     <!-- Screenshot toast -->
     <string name="delete_screenshot_toast">Screenshot deleted</string>
+    
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Alerting notifications</string>
+    
 </resources>
