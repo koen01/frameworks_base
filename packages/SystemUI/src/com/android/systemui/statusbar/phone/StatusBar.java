@@ -652,6 +652,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             Intent.ACTION_PACKAGE_REMOVED
     };
     @Nullable private ComponentName mDefaultHome;
+    private String mDefaultBrowser;
     private boolean mIsLauncherShowing;
     private ComponentName mTaskComponentName = null;
 
@@ -840,6 +841,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 ActivityManagerWrapper.getInstance().getRunningTask();
         mRunningTaskId = runningTaskInfo == null ? 0 : runningTaskInfo.taskId;
         mDefaultHome = getCurrentDefaultHome();
+        mDefaultBrowser = getCurrentDefaultBrowser();
         mContext.registerReceiver(mDefaultHomeBroadcastReceiver, mDefaultHomeIntentFilter);
         ActivityManagerWrapper.getInstance().registerTaskStackListener(mTaskStackChangeListener);
     }
@@ -1421,6 +1423,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         @Override
         public void onReceive(Context context, Intent intent) {
             mDefaultHome = getCurrentDefaultHome();
+            mDefaultBrowser = getCurrentDefaultBrowser();
         }
     };
 
@@ -1443,6 +1446,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
         mRunningTaskId = taskId;
         mIsLauncherShowing = taskComponentName.equals(mDefaultHome);
+        mCommandQueue.setBrowserIsShowing(taskComponentName.getPackageName().equals(mDefaultBrowser));
         mTaskComponentName = taskComponentName;
         if (mMediaManager != null) {
             mMediaManager.setRunningPackage(mTaskComponentName.getPackageName());
@@ -1468,6 +1472,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
         }
         return topComponent;
+    }
+
+    private String getCurrentDefaultBrowser() {
+        return mContext.getPackageManager().getDefaultBrowserPackageNameAsUser(UserHandle.myUserId());
     }
 
     /**
@@ -1986,6 +1994,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.GESTURE_NAVBAR_BROWSER_ACTION),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2024,7 +2035,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.LEFT_LONG_BACK_SWIPE_ACTION)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.LEFT_VERTICAL_BACK_SWIPE_ACTION)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.RIGHT_VERTICAL_BACK_SWIPE_ACTION))) {
+                    uri.equals(Settings.System.getUriFor(Settings.System.RIGHT_VERTICAL_BACK_SWIPE_ACTION)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.GESTURE_NAVBAR_BROWSER_ACTION))) {
                 setGestureNavOptions();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.SHOW_MEDIA_HEADS_UP))) {
                 setMediaHeadsup();
