@@ -840,6 +840,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         mDefaultBrowser = getCurrentDefaultBrowser();
         mContext.registerReceiver(mDefaultHomeBroadcastReceiver, mDefaultHomeIntentFilter);
         ActivityManagerWrapper.getInstance().registerTaskStackListener(mTaskStackChangeListener);
+
+        // this will initialize Pulse and begin listening for media events
+        mMediaManager.addCallback(Dependency.get(PulseController.class));
     }
 
     // ================================================================================
