@@ -44,6 +44,7 @@ import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
@@ -346,6 +347,12 @@ public class Utils {
                 throws RemoteException {
             return mService.getOverlayInfosForTarget(target, userId);
         }
+    }
+
+    public static int getThemeAccentColor (final Context context) {
+        final TypedValue value = new TypedValue ();
+        context.getTheme ().resolveAttribute (android.R.attr.colorAccent, value, true);
+        return value.data;
     }
 
     // Method to detect whether the system dark theme is enabled or not
