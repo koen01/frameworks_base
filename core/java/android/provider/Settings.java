@@ -9501,6 +9501,17 @@ public final class Settings {
         public static final Validator STATUS_BAR_CLOCK_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
 
+         /**
+         * Show or hide clock seconds
+         * 0 - hide
+         * 1 - show (default)
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_SECONDS = "status_bar_clock_seconds";
+        /** @hide */
+        private static final Validator STATUSBAR_CLOCK_SECONDS_VALIDATOR =
+                 BOOLEAN_VALIDATOR;
+
         /**
          * AM/PM Style for clock options
          * 0 - No AM/PM  (default)
@@ -9815,7 +9826,13 @@ public final class Settings {
             GLOBAL_ACTIONS_PANEL_ENABLED,
             AWARE_LOCK_ENABLED,
             AWARE_TAP_PAUSE_GESTURE_COUNT,
-            AWARE_TAP_PAUSE_TOUCH_COUNT
+            AWARE_TAP_PAUSE_TOUCH_COUNT,
+            STATUSBAR_CLOCK_SECONDS,
+            STATUS_BAR_CLOCK,
+            STATUSBAR_CLOCK_AM_PM_STYLE,
+            STATUSBAR_CLOCK_DATE_DISPLAY,
+            STATUSBAR_CLOCK_DATE_STYLE,
+            STATUSBAR_CLOCK_DATE_FORMAT
         };
 
         /**
@@ -10019,6 +10036,12 @@ public final class Settings {
             VALIDATORS.put(AWARE_TAP_PAUSE_GESTURE_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(AWARE_TAP_PAUSE_TOUCH_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(TAP_GESTURE, TAP_GESTURE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_SECONDS, STATUSBAR_CLOCK_SECONDS_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_AM_PM_STYLE, STATUSBAR_CLOCK_AM_PM_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_DATE_STYLE, STATUSBAR_CLOCK_DATE_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_DATE_DISPLAY, STATUSBAR_CLOCK_DATE_DISPLAY_VALIDATOR);
         }
 
         /**
