@@ -148,4 +148,9 @@ interface IStatusBarService
      * display.
      */
     void suppressAmbientDisplay(boolean suppress);
+
+    /**
+     * Toggle flashlight
+     */
+    void toggleCameraFlash();
 }
