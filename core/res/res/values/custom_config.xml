@@ -35,4 +35,7 @@
      <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
     </string-array>
+
+    <!-- Soli check -->
+    <bool name="config_has_Soli">false</bool>
 </resources>

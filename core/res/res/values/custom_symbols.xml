@@ -33,4 +33,7 @@
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+
+    <!-- Soli check -->
+    <java-symbol type="bool" name="config_has_Soli" />
 </resources>
