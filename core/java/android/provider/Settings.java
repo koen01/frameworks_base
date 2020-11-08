@@ -5184,6 +5184,11 @@ public final class Settings {
          */
         public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
+        /** Whether to pulse ambient on new music tracks
+         *
+         * @hide
+         */
+        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
 
         /**
          * Battery style
