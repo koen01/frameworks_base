@@ -36,4 +36,7 @@
 
     <!-- Soli check -->
     <java-symbol type="bool" name="config_has_Soli" />
+
+    <!-- Ezio's weird sensor check -->
+    <java-symbol type="bool" name="config_has_weird_dt_sensor" />
 </resources>
