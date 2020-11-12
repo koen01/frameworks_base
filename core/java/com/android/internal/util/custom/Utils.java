@@ -29,6 +29,7 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.media.AudioManager;
+import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -200,6 +201,16 @@ public class Utils {
                 } catch (RemoteException e) {}
             }
         }
+
+        // Clear notifications
+        public static void startAssist() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.startAssist(new Bundle());
+                } catch (RemoteException e) {}
+            }
+        }
     }
 
     public static void clearAllNotifications() {
@@ -313,5 +324,9 @@ public class Utils {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void startAssist() {
+        FireActions.startAssist();
     }
 }
