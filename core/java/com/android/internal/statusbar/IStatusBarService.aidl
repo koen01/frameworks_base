@@ -153,7 +153,7 @@ interface IStatusBarService
     /**
      * Toggle flashlight
      */
-    void toggleCameraFlash();
+    void toggleCameraFlash(boolean proximityCheck);
 
     /**
      * Start Assistant
@@ -165,5 +165,8 @@ interface IStatusBarService
      */
     void setBlockedGesturalNavigation(boolean blocked);
 
-
+    /**
+     * Elmyra (Active Edge)
+     */
+    void triggerElmyraAction(String action);
 }

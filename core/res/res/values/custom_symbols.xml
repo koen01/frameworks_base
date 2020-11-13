@@ -39,4 +39,7 @@
 
     <!-- Ezio's weird sensor check -->
     <java-symbol type="bool" name="config_has_weird_dt_sensor" />
+
+    <!-- Active Edge -->
+    <java-symbol type="bool" name="config_has_elmyra" />
 </resources>

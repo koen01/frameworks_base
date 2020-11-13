@@ -232,10 +232,12 @@ oneway interface IStatusBar
     /**
      * Toggle flashlight
      */
-    void toggleCameraFlash();
+    void toggleCameraFlash(boolean proximityCheck);
 
     /**
      * Used to block or unblock usage of gestural navigation
      */
     void setBlockedGesturalNavigation(boolean blocked);
+
+    void triggerElmyraAction(String action);
 }
