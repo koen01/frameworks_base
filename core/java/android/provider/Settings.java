@@ -5201,6 +5201,24 @@ public final class Settings {
          public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
         /**
+         * Whether to show media album art on keyguard
+         * @hide
+         */
+        public static final String KEYGUARD_MEDIA_ART = "keyguard_media_art";
+
+        /**
+         * Whether to enable blur for media album art on keyguard
+         * @hide
+         */
+        public static final String KEYGUARD_MEDIA_ART_ENABLE_BLUR = "keyguard_media_art_enable_blur";
+
+        /**
+         * Adjust blur radius for media album art on keyguard
+         * @hide
+         */
+        public static final String KEYGUARD_MEDIA_ART_BLUR_RADIUS = "keyguard_media_art_blur_radius";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
