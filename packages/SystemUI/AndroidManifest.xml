@@ -287,10 +287,6 @@
     <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
 
-    <!-- Visualizer -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
     <!-- Live wallpapers -->
     <protected-broadcast android:name="com.breel.wallpapers.NOTIFICATION_RECEIVED"/>
     <permission android:name="com.breel.wallpapers.notifications"/>

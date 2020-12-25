@@ -3098,9 +3098,6 @@ public final class Settings {
 
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
-
-            // Scorpion sting
-            MOVED_TO_SECURE.add(Secure.LOCKSCREEN_VISUALIZER_ENABLED);
         }
 
         @UnsupportedAppUsage
@@ -9282,12 +9279,6 @@ public final class Settings {
          * @hide
          */
         public static final String ADAPTIVE_CONNECTIVITY_ENABLED = "adaptive_connectivity_enabled";
-
-        /**
-         * Enable and disable Lockscreen visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
