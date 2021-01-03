@@ -42,6 +42,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.PowerMenuTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
@@ -87,6 +88,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<SoundSearchTile> mSoundSearchTileProvider;
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
+    private final Provider<PowerMenuTile> mPowerMenuTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<KillappTile> mKillappTileProvider;
     private final Provider<ThemeTile> mThemeTileProvider;
@@ -118,6 +120,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<SoundSearchTile> soundSearchTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
+            Provider<PowerMenuTile> powerMenuTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<KillappTile> killappTileProvider,
             Provider<ThemeTile> themeTileProvider) {
@@ -145,6 +148,7 @@ public class QSFactoryImpl implements QSFactory {
         mCaffeineTileProvider = caffeineTileProvider;
         mSoundSearchTileProvider = soundSearchTileProvider;
         mMonoToggleTileProvider = monoToggleTileProvider;
+        mPowerMenuTileProvider = powerMenuTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mKillappTileProvider = killappTileProvider;
         mThemeTileProvider = themeTileProvider;
@@ -205,6 +209,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mSoundSearchTileProvider.get();
             case "mono":
                 return mMonoToggleTileProvider.get();
+            case "powermenu":
+                return mPowerMenuTileProvider.get();
             case "screenshot":
                 return mScreenshotTileProvider.get();
             case "killapp":
