@@ -4792,12 +4792,6 @@ public final class Settings {
         public static final String MULTI_AUDIO_FOCUS_ENABLED = "multi_audio_focus_enabled";
 
         /**
-         * Whether to enable our custom black theme
-         * @hide
-         */
-        public static final String ENABLE_DARKER_THEME = "enable_darker_theme";
-
-        /**
          * How many rows to show in the qs panel when in portrait
          * @hide
          */
