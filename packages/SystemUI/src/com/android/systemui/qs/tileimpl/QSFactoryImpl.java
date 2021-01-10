@@ -89,6 +89,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<KillappTile> mKillappTileProvider;
+    private final Provider<ThemeTile> mThemeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -118,7 +119,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SoundSearchTile> soundSearchTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
-            Provider<KillappTile> killappTileProvider) {
+            Provider<KillappTile> killappTileProvider,
+            Provider<ThemeTile> themeTileProvider) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -145,6 +147,7 @@ public class QSFactoryImpl implements QSFactory {
         mMonoToggleTileProvider = monoToggleTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mKillappTileProvider = killappTileProvider;
+        mThemeTileProvider = themeTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -206,8 +209,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "killapp":
                 return mKillappTileProvider.get();
-//            case "theme":
-//                return new ThemeTile(mHost);
+            case "theme":
+                return mThemeTileProvider.get();
         }
 
         // Custom tiles
