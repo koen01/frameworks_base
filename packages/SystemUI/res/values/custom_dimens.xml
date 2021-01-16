@@ -41,4 +41,5 @@
     <!-- QS detail view scrolling -->
     <dimen name="qs_detail_item_height_twoline">72dp</dimen>
 
+    <dimen name="keyguard_security_fod_view_margin">140dp</dimen>
 </resources>
