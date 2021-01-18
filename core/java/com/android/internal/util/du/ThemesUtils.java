@@ -95,5 +95,8 @@ public class ThemesUtils {
             "com.android.theme.font.samsungone",
             "com.android.theme.font.firasans",
             "com.android.theme.font.ubuntu",
+            "com.android.theme.font.linotte",
+            "com.android.theme.font.storopia",
+            "com.android.theme.font.exotwo",
     };
 }
