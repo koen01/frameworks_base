@@ -107,5 +107,6 @@ public class ThemesUtils {
             "com.android.theme.font.exotwo",
             "com.android.theme.font.rubikrubik",
             "com.android.theme.font.comicsanssource",
+            "com.android.theme.font.sfpro",
     };
 }
