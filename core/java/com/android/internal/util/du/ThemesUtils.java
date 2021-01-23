@@ -77,6 +77,11 @@ public class ThemesUtils {
             "com.android.theme.solarizeddark.systemui",
     };
 
+    public static final String[] SCORPION_CLEAR = {
+            "com.android.theme.scorpionclear.system",
+            "com.android.theme.scorpionclear.systemui",
+    };
+
     public static final String[] STATUSBAR_ICONS = {
             "com.android.theme.icon_pack.filled.android",
             "com.android.theme.icon_pack.rounded.android",
