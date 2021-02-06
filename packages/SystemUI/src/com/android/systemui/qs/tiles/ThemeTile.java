@@ -137,6 +137,8 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
                 R.string.system_theme_style_solarizeddark, "solarized_dark"));
         sStyleItems.add(new ThemeTileItem(UiModeManager.MODE_NIGHT_YES, -1,
                 R.string.system_theme_style_scorpionclear, "scorpion_clear"));
+        sStyleItems.add(new ThemeTileItem(UiModeManager.MODE_NIGHT_YES, -1,
+                R.string.system_theme_style_materialocean, "material_ocean"));
     }
 
     private enum Mode {
@@ -337,6 +339,15 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
                     try {
                         mOverlayManager.setEnabled(scorpion_clear,
                                 themeItem.uri.equals("scorpion_clear"), USER_SYSTEM);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+                for (int i = 0; i < ThemesUtils.MATERIAL_OCEAN.length; i++) {
+                    String material_ocean = ThemesUtils.MATERIAL_OCEAN[i];
+                    try {
+                        mOverlayManager.setEnabled(material_ocean,
+                                themeItem.uri.equals("material_ocean"), USER_SYSTEM);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
