@@ -5016,6 +5016,18 @@ public final class Settings {
         public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_vertical_back_swipe_app_activity_action";
 
         /**
+         * Whether footer text shows
+         * @hide
+         */
+        public static final String FOOTER_TEXT_SHOW = "footer_text_show";
+
+        /**
+         * QS footer text
+         * @hide
+         */
+        public static final String FOOTER_TEXT_STRING = "footer_text_string";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5141,6 +5153,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
+            PRIVATE_SETTINGS.add(FOOTER_TEXT_SHOW);
         }
 
         /**
