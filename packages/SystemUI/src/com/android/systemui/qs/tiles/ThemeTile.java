@@ -117,12 +117,16 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
                 R.string.quick_settings_theme_tile_color_teal, "com.android.theme.color.teal"));
         sThemeItems.add(new ThemeTileItem(29, R.color.quick_settings_theme_tile_yellow,
                 R.string.quick_settings_theme_tile_color_yellow, "com.android.theme.color.yellow"));
-        sThemeItems.add(new ThemeTileItem(30, R.color.quick_settings_theme_tile_scorpiongreen,
+        sThemeItems.add(new ThemeTileItem(30, R.color.quick_settings_theme_tile_scorpionblue,
+                R.string.quick_settings_theme_tile_color_scorpionblue, "com.android.theme.color.scorpionblue"));
+        sThemeItems.add(new ThemeTileItem(31, R.color.quick_settings_theme_tile_scorpiongreen,
                 R.string.quick_settings_theme_tile_color_scorpiongreen, "com.android.theme.color.scorpiongreen"));
-        sThemeItems.add(new ThemeTileItem(31, R.color.quick_settings_theme_tile_scorpionpurple,
+        sThemeItems.add(new ThemeTileItem(32, R.color.quick_settings_theme_tile_scorpionpurple,
                 R.string.quick_settings_theme_tile_color_scorpionpurple, "com.android.theme.color.scorpionpurple"));
-        sThemeItems.add(new ThemeTileItem(32, R.color.quick_settings_theme_tile_scorpionred,
+        sThemeItems.add(new ThemeTileItem(33, R.color.quick_settings_theme_tile_scorpionred,
                 R.string.quick_settings_theme_tile_color_scorpionred, "com.android.theme.color.scorpionred"));
+        sThemeItems.add(new ThemeTileItem(34, R.color.quick_settings_theme_tile_scorpionyellow,
+                R.string.quick_settings_theme_tile_color_scorpionyellow, "com.android.theme.color.scorpionyellow"));
     }
 
     static final List<ThemeTileItem> sStyleItems = new ArrayList<ThemeTileItem>();

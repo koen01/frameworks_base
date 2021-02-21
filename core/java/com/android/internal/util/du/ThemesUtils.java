@@ -51,9 +51,11 @@ public class ThemesUtils {
             "com.android.theme.color.red", // Red
             "com.android.theme.color.teal", // Teal
             "com.android.theme.color.yellow", // Yellow
+            "com.android.theme.color.scorpionblue", // Scorpion Blue
             "com.android.theme.color.scorpiongreen", // Scorpion Green
             "com.android.theme.color.scorpionpurple", // Scorpion Purple
             "com.android.theme.color.scorpionred", // Scorpion Red
+            "com.android.theme.color.scorpionyellow", // Scorpion Yellow
     };
 
     public static final String[] ADAPTIVE_ICON_SHAPE = {
