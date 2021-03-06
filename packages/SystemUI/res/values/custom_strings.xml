@@ -124,4 +124,8 @@
     <string name="accessibility_quick_settings_heads_up_on">Heads-up enabled</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up is now disabled</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up is now enabled</string>
+
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Use Face</string>
+
 </resources>
