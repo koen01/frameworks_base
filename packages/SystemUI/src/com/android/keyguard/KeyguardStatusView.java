@@ -276,9 +276,15 @@ public class KeyguardStatusView extends GridLayout implements
         } else if (mClockSelection == 4) {
             mClockView.setFormat12Hour("hh\nmm");
             mClockView.setFormat24Hour("kk\nmm");
-        } else {
+        } else if (mClockSelection == 5) {
             mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong><br>mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong><br>mm"));
+        } else if (mClockSelection == 6) {
+            mClockView.setFormat12Hour(Html.fromHtml("<big>h</big><small>mm</small>"));
+            mClockView.setFormat24Hour(Html.fromHtml("<big>kk</big><small>mm</small>"));
+        } else {
+            mClockView.setFormat12Hour(Html.fromHtml("<strong><big>h</big></strong><small>mm</small>"));
+            mClockView.setFormat24Hour(Html.fromHtml("<strong><big>kk</big></strong><small>mm</small>"));
         }
     }
 
@@ -405,6 +411,12 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.setVisibility(View.VISIBLE);
                 break;
             case 5: // sammy (bold)
+                mClockView.setVisibility(View.VISIBLE);
+                break;
+            case 6: // sfuny
+                mClockView.setVisibility(View.VISIBLE);
+                break;
+            case 7: // sfuny (bold)
                 mClockView.setVisibility(View.VISIBLE);
                 break;
         }
