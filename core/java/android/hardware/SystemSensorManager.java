@@ -258,6 +258,7 @@ public class SystemSensorManager extends SensorManager {
             int sensortype = sensor.getType();
             if (sensortype == Sensor.TYPE_SIGNIFICANT_MOTION ||
                     sensortype == Sensor.TYPE_ACCELEROMETER ||
+					sensortype == Sensor.TYPE_PROXIMITY ||
                     sensortype == Sensor.TYPE_LINEAR_ACCELERATION) {
                 String pkgName = mContext.getPackageName();
                 if (isBlockedApp(pkgName)) {
