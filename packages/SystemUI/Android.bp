@@ -97,6 +97,8 @@ android_library {
         "lottie",
         "monet",
         "tensorflowlite_java",
+        "colorkt",
+        "themelib",
     ],
     manifest: "AndroidManifest.xml",
 
