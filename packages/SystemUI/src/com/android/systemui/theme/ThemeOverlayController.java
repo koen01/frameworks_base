@@ -61,6 +61,7 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
+import com.android.systemui.monet.ColorScheme;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.monet.ColorScheme;
 import com.android.systemui.statusbar.FeatureFlags;
@@ -437,19 +438,20 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
         }
 
         int size = colorScheme.getAccent1().size();
-        FabricatedOverlay.Builder builder = new FabricatedOverlay.Builder(mContext.getPackageName(), name, "android");
+        FabricatedOverlay.Builder builder =
+                new FabricatedOverlay.Builder(mContext.getPackageName(), name, "android");
 
         for (int i = 0; i < colors.size(); i++) {
             int lightness = i % size;
             int shade = i / size + 1;
 
-            String targetResource;
+            String targetResource = "android:color/system_";
             if (lightness == 0) {
-                targetResource = "android:color/system_" + name + shade + "_10";
+                targetResource += name + shade + "_10";
             } else if (lightness == 1) {
-                targetResource = "android:color/system_" + name + shade + "_50";
+                targetResource += name + shade + "_50";
             } else {
-                targetResource = "android:color/system_" + name + shade + "_" + (lightness - 1) + "00";
+                targetResource += name + shade + "_" + (lightness - 1) + "00";
             }
 
             builder.setResourceValue(targetResource, TypedValue.TYPE_INT_COLOR_ARGB8,
