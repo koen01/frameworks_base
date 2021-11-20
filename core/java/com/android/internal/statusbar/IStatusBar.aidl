@@ -289,4 +289,6 @@ oneway interface IStatusBar
      * scorpion
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
+
 }
