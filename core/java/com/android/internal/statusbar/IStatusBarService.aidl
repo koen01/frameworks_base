@@ -161,4 +161,5 @@ interface IStatusBarService
      * scorpion
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 }
