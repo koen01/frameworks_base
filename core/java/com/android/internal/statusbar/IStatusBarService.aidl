@@ -163,7 +163,7 @@ interface IStatusBarService
      */
     void startAssist(in Bundle args);
 
-     * scorpion
+    /* scorpion
      */
     void toggleCameraFlash();
     void toggleCameraFlashState(boolean enable);
