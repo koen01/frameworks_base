@@ -162,4 +162,9 @@ interface IStatusBarService
      * Starts the default assistant app.
      */
     void startAssist(in Bundle args);
+
+    /* scorpion
+     */
+    void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 }
