@@ -24,17 +24,13 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
-import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.input.InputManager;
-import android.net.NetworkInfo;
-import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.os.SystemClock;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
@@ -53,19 +49,6 @@ public class SuperiorUtils {
     public static final String INTENT_SCREENSHOT = "action_handler_screenshot";
     public static final String INTENT_REGION_SCREENSHOT = "action_handler_region_screenshot";
 
-    public static String batteryTemperature(Context context, Boolean ForC) {
-        Intent intent = context.registerReceiver(null, new IntentFilter(
-                Intent.ACTION_BATTERY_CHANGED));
-        float  temp = ((float) (intent != null ? intent.getIntExtra(
-                BatteryManager.EXTRA_TEMPERATURE, 0) : 0)) / 10;
-        // Round up to nearest number
-        int c = (int) ((temp) + 0.5f);
-        float n = temp + 0.5f;
-        // Use boolean to determine celsius or fahrenheit
-        return String.valueOf((n - c) % 2 == 0 ? (int) temp :
-                ForC ? c * 9/5 + 32:c);
-    }
-
     public static void takeScreenshot(boolean full) {
         IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
         try {
@@ -73,22 +56,6 @@ public class SuperiorUtils {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-    }
-
-    // Method to detect countries that use Fahrenheit
-    public static boolean mccCheck(Context context) {
-        // MCC's belonging to countries that use Fahrenheit
-        String[] mcc = {"364", "552", "702", "346", "550", "376", "330",
-                "310", "311", "312", "551"};
-
-        TelephonyManager tel = (TelephonyManager) context.getSystemService(
-                Context.TELEPHONY_SERVICE);
-        String networkOperator = tel.getNetworkOperator();
-
-        // Check the array to determine celsius or fahrenheit.
-        // Default to celsius if can't access MCC
-        return !TextUtils.isEmpty(networkOperator) && Arrays.asList(mcc).contains(
-                networkOperator.substring(0, /*Filter only 3 digits*/ 3));
     }
 
     // Check to see if a package is installed
@@ -109,40 +76,6 @@ public class SuperiorUtils {
 
     public static boolean isPackageInstalled(Context context, String pkg) {
         return isPackageInstalled(context, pkg, true);
-    }
-
-    // Check to see if device supports the Fingerprint scanner
-    public static boolean hasFingerprintSupport(Context context) {
-        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-        return context.getApplicationContext().checkSelfPermission(Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED &&
-                (fingerprintManager != null && fingerprintManager.isHardwareDetected());
-    }
-
-    // Check to see if device not only supports the Fingerprint scanner but also if is enrolled
-    public static boolean hasFingerprintEnrolled(Context context) {
-        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-        return context.getApplicationContext().checkSelfPermission(Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED &&
-                (fingerprintManager != null && fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints());
-    }
-
-    // Check to see if device has a camera
-    public static boolean hasCamera(Context context) {
-        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
-    }
-
-    // Check to see if device supports Bluetooth
-    public static boolean hasBluetooth(Context context) {
-        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH);
-    }
-
-    // Check to see if device supports an alterative ambient display package
-    public static boolean hasAltAmbientDisplay(Context context) {
-        return context.getResources().getBoolean(com.android.internal.R.bool.config_alt_ambient_display);
-    }
-
-    // Check to see if device supports A/B (seamless) system updates
-    public static boolean isABdevice(Context context) {
-        return SystemProperties.getBoolean("ro.build.ab_update", false);
     }
 
     // Check for Chinese language
