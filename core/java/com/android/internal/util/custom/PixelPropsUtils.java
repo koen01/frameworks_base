@@ -16,7 +16,6 @@
 package com.android.internal.util.custom;
 
 import android.os.Build;
-import android.os.SystemProperties;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -32,29 +31,12 @@ public class PixelPropsUtils {
 
     private static volatile boolean sIsGms = false;
     public static final String PACKAGE_GMS = "com.google.android.gms";
-    private static final String DEVICE = "ro.statix.device";
 
     private static final Map<String, Object> propsToChange;
     private static final Map<String, ArrayList<String>> propsToKeep;
     private static final String[] extraPackagesToChange = {
         "com.android.vending",
         "com.breel.wallpapers20"
-    };
-
-    // Codenames for currently supported Pixels by Google
-    private static final String[] pixelCodenames = {
-        "oriole",
-        "raven",
-        "redfin",
-        "barbet",
-        "bramble",
-        "sunfish",
-        "coral",
-        "flame",
-        "bonito",
-        "sargo",
-        "crosshatch",
-        "blueline"
     };
 
     static {
@@ -73,7 +55,6 @@ public class PixelPropsUtils {
         if (packageName == null){
             return;
         }
-        if (Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE).replace("statix_", ""))) return;
         if (packageName.equals(PACKAGE_GMS)) {
             sIsGms = true;
         }
