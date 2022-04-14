@@ -26,7 +26,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.input.InputManager;
-import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.BatteryManager;
 import android.os.Handler;
@@ -47,13 +46,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class SuperiorUtils {
-
-    // Check to see if device is WiFi only
-    public static boolean isWifiOnly(Context context) {
-        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
-                Context.CONNECTIVITY_SERVICE);
-        return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
-    }
 
     public static String batteryTemperature(Context context, Boolean ForC) {
         Intent intent = context.registerReceiver(null, new IntentFilter(
@@ -121,11 +113,6 @@ public class SuperiorUtils {
     // Check to see if device has a camera
     public static boolean hasCamera(Context context) {
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
-    }
-
-    // Check to see if device supports NFC
-    public static boolean hasNFC(Context context) {
-        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC);
     }
 
     // Check to see if device supports Wifi
