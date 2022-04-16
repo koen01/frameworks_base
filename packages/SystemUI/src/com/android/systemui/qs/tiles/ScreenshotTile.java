@@ -28,7 +28,7 @@ import androidx.annotation.Nullable;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.spark.SparkUtils;
+import com.android.internal.util.superior.SuperiorUtils;
 
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
@@ -88,10 +88,9 @@ public class ScreenshotTile extends QSTileImpl<BooleanState> {
         mHost.collapsePanels();
 
         //finish collapsing the panel
-        try {
-             Thread.sleep(1000); //1s
-        } catch (InterruptedException ie) {}
-        SparkUtils.takeScreenshot(mRegion ? false : true);
+        mUiHandler.postDelayed(() -> {
+            SuperiorUtils.takeScreenshot(mRegion ? false : true);
+        }, 1000/*timeout*/);
     }
 
     @Override
