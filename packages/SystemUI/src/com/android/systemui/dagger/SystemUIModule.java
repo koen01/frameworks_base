@@ -52,6 +52,7 @@ import com.android.systemui.privacy.PrivacyModule;
 import com.android.systemui.qs.FgsManagerController;
 import com.android.systemui.qs.FgsManagerControllerImpl;
 import com.android.systemui.qs.footer.dagger.FooterActionsModule;
+import com.android.systemui.R;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.screenshot.dagger.ScreenshotModule;
 import com.android.systemui.security.data.repository.SecurityRepositoryModule;
@@ -198,8 +199,17 @@ public abstract class SystemUIModule {
     @BindsOptionalOf
     abstract CentralSurfaces optionalCentralSurfaces();
 
-    @BindsOptionalOf
-    abstract UdfpsDisplayModeProvider optionalUdfpsDisplayModeProvider();
+    @Provides
+    static UdfpsDisplayModeProvider getUdfpsDisplayModeProvider(Context context) {
+        String className = context.getString(R.string.config_udfpsDisplayModeProviderComponent);
+        try {
+            Class<?> clazz = context.getClassLoader().loadClass(className);
+            return (UdfpsDisplayModeProvider) clazz.getDeclaredConstructor(
+                    new Class[] { Context.class }).newInstance(context);
+        } catch (Throwable t) {
+            throw new RuntimeException("Error loading UdfpsDisplayModeProvider " + className, t);
+        }
+    }
 
     @BindsOptionalOf
     abstract AlternateUdfpsTouchProvider optionalUdfpsTouchProvider();
