@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017 CarbonROM
+     Copyright (C) 2022 Crooked Android
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -46,4 +46,11 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limit recording size to 15 GB</string>
     <string name="screenrecord_skip_time_label">Skip timer</string>
     <string name="screenrecord_skip_time_summary">Remove 3 second wait</string>
+
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
+
 </resources>
